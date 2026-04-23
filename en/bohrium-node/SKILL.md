@@ -1,6 +1,6 @@
 ---
 name: bohrium-node
-description: "Manage Bohrium dev nodes (containers/VMs) via bohr CLI or openapi.dp.tech API. Use when: user asks about creating/starting/stopping/deleting dev machines on Bohrium, checking available resources and pricing, or managing node lifecycle. NOT for: job submission, image management, or project management."
+description: "Manage Bohrium dev nodes (containers/VMs) via bohr CLI or open.bohrium.com API. Use when: user asks about creating/starting/stopping/deleting dev machines on Bohrium, checking available resources and pricing, or managing node lifecycle. NOT for: job submission, image management, or project management."
 ---
 
 # SKILL: Bohrium Dev Node Management
@@ -134,7 +134,7 @@ Mount datasets when creating a container node; access via path (e.g. `/bohr/my-d
 import os, requests
 
 AK = os.environ.get("ACCESS_KEY", "")
-BASE = "https://openapi.dp.tech/openapi/v1/node"
+BASE = "https://open.bohrium.com/openapi/v1/node"
 HEADERS = {"accessKey": AK}
 HEADERS_JSON = {**HEADERS, "Content-Type": "application/json"}
 

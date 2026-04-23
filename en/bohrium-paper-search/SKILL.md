@@ -1,6 +1,6 @@
 ---
 name: bohrium-paper-search
-description: "Search academic papers and patents via openapi.dp.tech RAG engine. Use when: user asks about searching/finding academic papers, literature review, patent search, or technical survey using keywords or natural language questions. NOT for: knowledge base management, file management, or dataset operations."
+description: "Search academic papers and patents via open.bohrium.com RAG engine. Use when: user asks about searching/finding academic papers, literature review, patent search, or technical survey using keywords or natural language questions. NOT for: knowledge base management, file management, or dataset operations."
 ---
 
 # SKILL: Bohrium Paper & Patent Search
@@ -42,7 +42,7 @@ OpenClaw automatically injects `env.ACCESS_KEY` into the runtime.
 import os, requests
 
 AK = os.environ.get("ACCESS_KEY", "")
-BASE = "https://openapi.dp.tech/openapi/v1/paper"
+BASE = "https://open.bohrium.com/openapi/v1/paper"
 HEADERS_JSON = {"accessKey": AK, "Content-Type": "application/json"}
 ```
 
@@ -235,7 +235,7 @@ words = ["science", "research"]
 
 ```bash
 AK="YOUR_ACCESS_KEY"
-BASE="https://openapi.dp.tech/openapi/v1/paper"
+BASE="https://open.bohrium.com/openapi/v1/paper"
 
 # English paper search
 curl -s -X POST "$BASE/rag/pass/keyword" \

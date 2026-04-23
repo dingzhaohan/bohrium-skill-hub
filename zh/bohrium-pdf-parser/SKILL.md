@@ -1,13 +1,13 @@
 ---
 name: bohrium-pdf-parser
-description: "Parse PDF documents via openapi.dp.tech. Use when: user asks about extracting text, tables, charts, formulas, or molecules from PDF files on Bohrium, submitting PDFs by URL or file upload. NOT for: file management, dataset management, or knowledge base operations."
+description: "Parse PDF documents via open.bohrium.com. Use when: user asks about extracting text, tables, charts, formulas, or molecules from PDF files on Bohrium, submitting PDFs by URL or file upload. NOT for: file management, dataset management, or knowledge base operations."
 ---
 
 # SKILL: Bohrium PDF 解析
 
 ## 概述
 
-使用 `openapi.dp.tech` 提供的 PDF 解析服务，从 PDF 中提取文本、表格、图表、公式、分子式等内容。支持两种提交方式：
+使用 `open.bohrium.com` 提供的 PDF 解析服务，从 PDF 中提取文本、表格、图表、公式、分子式等内容。支持两种提交方式：
 
 - **URL 提交** — 传入 PDF 下载链接（如 arXiv 链接）
 - **文件上传** — 上传本地 PDF 文件
@@ -36,12 +36,10 @@ OpenClaw 会自动将 `env.ACCESS_KEY` 注入到运行环境。
 import os, time, requests
 
 AK = os.environ.get("ACCESS_KEY", "")
-BASE = "https://openapi.dp.tech/openapi/v1/parse"
+BASE = "https://open.bohrium.com/openapi/v1/parse"
 HEADERS = {"accessKey": AK}
 HEADERS_JSON = {**HEADERS, "Content-Type": "application/json"}
 ```
-
-> **注意**: API 服务在 `openapi.dp.tech`。`open.bohrium.com` 仅为文档站点（Apifox 托管），不是 API 地址。
 
 ---
 
@@ -156,7 +154,7 @@ print(f"Status: {data['status']}, Content length: {len(data.get('content', ''))}
 import os, time, requests
 
 AK = os.environ.get("ACCESS_KEY", "")
-BASE = "https://openapi.dp.tech/openapi/v1/parse"
+BASE = "https://open.bohrium.com/openapi/v1/parse"
 HEADERS = {"accessKey": AK}
 HEADERS_JSON = {**HEADERS, "Content-Type": "application/json"}
 
@@ -256,7 +254,7 @@ print(f"Content: {result['content'][:200]}")
 
 ```bash
 AK="YOUR_ACCESS_KEY"
-BASE="https://openapi.dp.tech/openapi/v1/parse"
+BASE="https://open.bohrium.com/openapi/v1/parse"
 
 # URL 提交
 curl -s -X POST "$BASE/trigger-url-async" \
@@ -287,6 +285,6 @@ curl -s -X POST "$BASE/get-result" \
 | `AccessKey is required` | 未传或传错 accessKey | Header 名为 `accessKey`（注意大小写），不是 `Authorization: Bearer` |
 | `int_parsing` 错误 | 文件上传时 `pages` 传了 JSON 数组 | multipart form 中 `pages` 只能传单个整数 |
 | `status: undefined` | 异步任务尚未完成 | 等待后重新调用 `get-result`，建议间隔 2 秒轮询 |
-| 连接超时 | 使用了错误的域名 | 确认用 `openapi.dp.tech`，不是 `open.bohrium.com` |
+| 连接超时 | 域名/网络问题 | 确认用 `open.bohrium.com`，可 `curl -I https://open.bohrium.com/openapi` 测试连通性 |
 | content 含 LaTeX 标记 | 正常行为 | 解析结果用 `\begin{title}` 等标记段落结构，需后处理提取纯文本 |
 | 大文件解析慢 | 页数多或内容复杂 | 用 `pages` 参数指定需要的页码，减少解析范围 |

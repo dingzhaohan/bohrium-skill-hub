@@ -1,6 +1,6 @@
 ---
 name: bohrium-knowledge-base
-description: "Manage Bohrium knowledge bases via openapi.dp.tech API. Use when: user asks about creating/listing/searching knowledge bases, managing literature/papers, uploading files, tagging, notes, or searching literature content. NOT for: compute jobs, nodes, images, or datasets."
+description: "Manage Bohrium knowledge bases via open.bohrium.com API. Use when: user asks about creating/listing/searching knowledge bases, managing literature/papers, uploading files, tagging, notes, or searching literature content. NOT for: compute jobs, nodes, images, or datasets."
 ---
 
 # SKILL: Bohrium Knowledge Base Management
@@ -30,7 +30,7 @@ OpenClaw automatically injects `env.ACCESS_KEY` into the runtime.
 ## Route Mapping
 
 ```
-External call: GET/POST https://openapi.dp.tech/openapi/v1/knowledge/{path}
+External call: GET/POST https://open.bohrium.com/openapi/v1/knowledge/{path}
                Header: accessKey: YOUR_ACCESS_KEY
 
 Gateway forwards: → literature-sage.bohrium.com/api/v1/{path}
@@ -43,7 +43,7 @@ Gateway forwards: → literature-sage.bohrium.com/api/v1/{path}
 import os, requests
 
 AK = os.environ.get("ACCESS_KEY", "")
-BASE = "https://openapi.dp.tech/openapi/v1/knowledge"
+BASE = "https://open.bohrium.com/openapi/v1/knowledge"
 HEADERS = {"accessKey": AK}
 HEADERS_JSON = {**HEADERS, "Content-Type": "application/json"}
 ```

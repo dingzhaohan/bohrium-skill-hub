@@ -1,13 +1,13 @@
 ---
 name: bohrium-pdf-parser
-description: "Parse PDF documents via openapi.dp.tech. Use when: user asks about extracting text, tables, charts, formulas, or molecules from PDF files on Bohrium, submitting PDFs by URL or file upload. NOT for: file management, dataset management, or knowledge base operations."
+description: "Parse PDF documents via open.bohrium.com. Use when: user asks about extracting text, tables, charts, formulas, or molecules from PDF files on Bohrium, submitting PDFs by URL or file upload. NOT for: file management, dataset management, or knowledge base operations."
 ---
 
 # SKILL: Bohrium PDF Parser
 
 ## Overview
 
-Parse PDF documents using the `openapi.dp.tech` PDF parsing service. Extract text, tables, charts, formulas, and molecular structures from PDFs. Two submission methods:
+Parse PDF documents using the `open.bohrium.com` PDF parsing service. Extract text, tables, charts, formulas, and molecular structures from PDFs. Two submission methods:
 
 - **URL submission** — provide a PDF download link (e.g. arXiv link)
 - **File upload** — upload a local PDF file
@@ -36,12 +36,10 @@ OpenClaw automatically injects `env.ACCESS_KEY` into the runtime.
 import os, time, requests
 
 AK = os.environ.get("ACCESS_KEY", "")
-BASE = "https://openapi.dp.tech/openapi/v1/parse"
+BASE = "https://open.bohrium.com/openapi/v1/parse"
 HEADERS = {"accessKey": AK}
 HEADERS_JSON = {**HEADERS, "Content-Type": "application/json"}
 ```
-
-> **Note**: The API is served at `openapi.dp.tech`. `open.bohrium.com` is only a documentation site (hosted by Apifox), not the API endpoint.
 
 ---
 
@@ -156,7 +154,7 @@ print(f"Status: {data['status']}, Content length: {len(data.get('content', ''))}
 import os, time, requests
 
 AK = os.environ.get("ACCESS_KEY", "")
-BASE = "https://openapi.dp.tech/openapi/v1/parse"
+BASE = "https://open.bohrium.com/openapi/v1/parse"
 HEADERS = {"accessKey": AK}
 HEADERS_JSON = {**HEADERS, "Content-Type": "application/json"}
 
@@ -256,7 +254,7 @@ print(f"Content: {result['content'][:200]}")
 
 ```bash
 AK="YOUR_ACCESS_KEY"
-BASE="https://openapi.dp.tech/openapi/v1/parse"
+BASE="https://open.bohrium.com/openapi/v1/parse"
 
 # URL submission
 curl -s -X POST "$BASE/trigger-url-async" \
@@ -287,6 +285,6 @@ curl -s -X POST "$BASE/get-result" \
 | `AccessKey is required` | Missing or incorrect accessKey | Header name is `accessKey` (case-sensitive), not `Authorization: Bearer` |
 | `int_parsing` error | `pages` sent as JSON array in file upload | Use a single integer for `pages` in multipart form |
 | `status: undefined` | Async task not yet complete | Poll `get-result` again; recommended interval: 2 seconds |
-| Connection timeout | Wrong domain used | Use `openapi.dp.tech`, not `open.bohrium.com` |
+| Connection timeout | Domain/network issue | Use `open.bohrium.com`; test connectivity via `curl -I https://open.bohrium.com/openapi` |
 | Content has LaTeX markup | Normal behavior | Results use `\begin{title}` etc. to mark structure; post-process to extract plain text |
 | Large file parses slowly | Many pages or complex content | Use `pages` parameter to limit scope |

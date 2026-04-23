@@ -1,6 +1,6 @@
 ---
 name: bohrium-job
-description: "Manage Bohrium compute jobs via bohr CLI or openapi.dp.tech API. Use when: user asks about submitting/listing/killing/deleting compute jobs on Bohrium, checking job logs, or monitoring job status. NOT for: node management, image management, or project management."
+description: "Manage Bohrium compute jobs via bohr CLI or open.bohrium.com API. Use when: user asks about submitting/listing/killing/deleting compute jobs on Bohrium, checking job logs, or monitoring job status. NOT for: node management, image management, or project management."
 ---
 
 # SKILL: Bohrium 任务 (Job) 管理
@@ -43,7 +43,7 @@ bohr version
 
 > 安装脚本会自动配置 `OPENAPI_HOST` 和 `TIEFBLUE_HOST` 环境变量。若未生效，手动设置：
 > ```bash
-> export OPENAPI_HOST=https://openapi.dp.tech
+> export OPENAPI_HOST=https://open.bohrium.com
 > export TIEFBLUE_HOST=https://tiefblue.dp.tech
 > ```
 
@@ -314,7 +314,7 @@ bohr job_group download -j 15954383 -o ./results/    # 下载任务组结果
 import os, requests
 
 AK = os.environ.get("ACCESS_KEY", "")
-BASE = "https://openapi.dp.tech/openapi/v1"
+BASE = "https://open.bohrium.com/openapi/v1"
 HEADERS = {"accessKey": AK}
 
 # 按状态过滤任务列表 (0=等待, 1=运行中, 2=完成, 3=调度中, -1=失败)
@@ -371,7 +371,7 @@ requests.post(f"{BASE}/job_group/{job_group_id}/modify",
 | 问题 | 原因 | 解决 |
 |------|------|------|
 | `cd /root/input: No such file` | cmd 中用了绝对路径 | Bohrium 工作目录不可预测，用**相对路径** |
-| `unsupported protocol scheme ""` | bohr CLI 缺少环境变量 | `export OPENAPI_HOST=https://openapi.dp.tech && export TIEFBLUE_HOST=https://tiefblue.dp.tech` |
+| `unsupported protocol scheme ""` | bohr CLI 缺少环境变量 | `export OPENAPI_HOST=https://open.bohrium.com && export TIEFBLUE_HOST=https://tiefblue.dp.tech` |
 | `(200, '/account/login', None)` | 旧版 lbg (pip) 不支持 access_key | 用新版 Go CLI（`~/.bohrium/bohr`） |
 | WAF 405 拦截 | cmd 含 shell 关键字被阿里云 WAF 拦截 | 将命令写入脚本文件，cmd 改为 `bash run.sh` |
 | `Permission error` | Job 不属于当前用户 | 确认 ACCESS_KEY 对应的用户 |
