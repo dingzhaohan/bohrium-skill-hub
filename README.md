@@ -28,7 +28,7 @@ bohrium-skill-hub/
 
 #### 平台 API Skills
 
-通过 `bohr` CLI 或 `openapi.dp.tech` HTTP API 操作 Bohrium 平台资源。
+通过 `bohr` CLI 或 `open.bohrium.com` HTTP API 操作 Bohrium 平台资源。
 
 | Skill | 说明 |
 |-------|------|
@@ -99,7 +99,7 @@ description: "一行描述。Use when: ... NOT for: ..."
 
 #### Platform API Skills
 
-Operate Bohrium platform resources via `bohr` CLI or `openapi.dp.tech` HTTP API.
+Operate Bohrium platform resources via `bohr` CLI or `open.bohrium.com` HTTP API.
 
 | Skill | Description |
 |-------|------------|

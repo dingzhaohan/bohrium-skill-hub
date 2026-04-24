@@ -1,6 +1,6 @@
 ---
 name: bohrium-project
-description: "Manage Bohrium projects via bohr CLI or openapi.dp.tech API. Use when: user asks about creating/listing/deleting projects on Bohrium, managing project members, or setting cost limits. NOT for: job submission, node management, or image management."
+description: "Manage Bohrium projects via bohr CLI or open.bohrium.com API. Use when: user asks about creating/listing/deleting projects on Bohrium, managing project members, or setting cost limits. NOT for: job submission, node management, or image management."
 ---
 
 # SKILL: Bohrium Project Management
@@ -188,7 +188,7 @@ The following operations are not covered by the bohr CLI and require the API:
 import os, requests
 
 AK = os.environ.get("ACCESS_KEY", "")
-BASE = "https://openapi.dp.tech/openapi/v1/project"
+BASE = "https://open.bohrium.com/openapi/v1/project"
 HEADERS = {"accessKey": AK}
 HEADERS_JSON = {**HEADERS, "Content-Type": "application/json"}
 

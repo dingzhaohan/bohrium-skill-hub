@@ -1,6 +1,6 @@
 ---
 name: bohrium-job
-description: "Manage Bohrium compute jobs via bohr CLI or openapi.dp.tech API. Use when: user asks about submitting/listing/killing/deleting compute jobs on Bohrium, checking job logs, or monitoring job status. NOT for: node management, image management, or project management."
+description: "Manage Bohrium compute jobs via bohr CLI or open.bohrium.com API. Use when: user asks about submitting/listing/killing/deleting compute jobs on Bohrium, checking job logs, or monitoring job status. NOT for: node management, image management, or project management."
 ---
 
 # SKILL: Bohrium Job Management
@@ -43,7 +43,7 @@ bohr version
 
 > The installer auto-configures `OPENAPI_HOST` and `TIEFBLUE_HOST`. If they don't take effect, set manually:
 > ```bash
-> export OPENAPI_HOST=https://openapi.dp.tech
+> export OPENAPI_HOST=https://open.bohrium.com
 > export TIEFBLUE_HOST=https://tiefblue.dp.tech
 > ```
 
@@ -312,7 +312,7 @@ bohr job_group download -j 15954383 -o ./results/
 import os, requests
 
 AK = os.environ.get("ACCESS_KEY", "")
-BASE = "https://openapi.dp.tech/openapi/v1"
+BASE = "https://open.bohrium.com/openapi/v1"
 HEADERS = {"accessKey": AK}
 
 # Filter by status (0=pending, 1=running, 2=finished, 3=scheduling, -1=failed)

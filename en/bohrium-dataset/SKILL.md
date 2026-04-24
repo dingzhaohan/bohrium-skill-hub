@@ -1,6 +1,6 @@
 ---
 name: bohrium-dataset
-description: "Manage Bohrium datasets via bohr CLI or openapi.dp.tech API. Use when: user asks about creating/listing/deleting datasets on Bohrium, uploading data, or managing dataset versions. NOT for: file management, job submission, or node management."
+description: "Manage Bohrium datasets via bohr CLI or open.bohrium.com API. Use when: user asks about creating/listing/deleting datasets on Bohrium, uploading data, or managing dataset versions. NOT for: file management, job submission, or node management."
 ---
 
 # SKILL: Bohrium Dataset Management
@@ -156,7 +156,7 @@ bohr dataset delete 138201 108601       # Batch
 import os, requests
 
 AK = os.environ.get("ACCESS_KEY", "")
-BASE = "https://openapi.dp.tech/openapi/v1/ds"
+BASE = "https://open.bohrium.com/openapi/v1/ds"
 HEADERS = {"accessKey": AK}
 HEADERS_JSON = {**HEADERS, "Content-Type": "application/json"}
 
